@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/emrick
 * {
     margin: 0;
     padding: 0;
@@ -38,12 +34,15 @@ h2 {
     background-image: 308;
 
 }
+
 .cookie img:active {
     transform: scale(1.1);
 }
-.cookie img:hover{
+
+.cookie img:hover {
     cursor: pointer;
 }
+
 #upgrade {
     font-family: Helvetica, sans-serif;
     display: inline-block;
@@ -59,7 +58,7 @@ h2 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#upgrade:hover{
+#upgrade:hover {
     transition-duration: 0.5s;
     transform: scale(1.1);
     background-color: rgb(206, 79, 79);
