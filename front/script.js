@@ -17,7 +17,3 @@ function UpgradeFunction() {
 
 }
 
-cookie.addEventListener('click', () => {
-    clicks++
-    showScore.innerHTML = clicks
-})
