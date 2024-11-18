@@ -64,8 +64,3 @@ h2 {
     transform: scale(1.1);
     background-color: rgb(206, 79, 79);
 }
-
-#upgrade:active {
-    transition-duration: 0.2s;
-    background-color: rgb(155, 50, 50);
-}
