@@ -16,4 +16,3 @@ cookie.addEventListener('click', () => {
 function UpgradeFunction() {
 
 }
-
