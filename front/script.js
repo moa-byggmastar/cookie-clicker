@@ -7,13 +7,14 @@ cookie.addEventListener('click', () => {
     clicks++;
     showScore.innerHTML = clicks;
     console.log("cock2")
-    if (clicks >= 50){
+    if (clicks >= 50) {
         upgrade.style.backgroundColor = "#d92323"
         console.log("cock1")
     }
 
 });
-function UpgradeFunction(){
+function UpgradeFunction() {
+
 }
 
 <<<<<<< HEAD
