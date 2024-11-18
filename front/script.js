@@ -17,10 +17,7 @@ function UpgradeFunction() {
 
 }
 
-<<<<<<< HEAD
 cookie.addEventListener('click', () => {
     clicks++
     showScore.innerHTML = clicks
 })
-=======
->>>>>>> origin/emrick
