@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/emrick
 * {
     margin: 0;
     padding: 0;
@@ -32,4 +36,31 @@ h2 {
     padding: 2rem;
     background-size: cover;
     background-image: 308;
+
+}
+.cookie img:active {
+    transform: scale(1.1);
+}
+.cookie img:hover{
+    cursor: pointer;
+}
+#upgrade {
+    font-family: Helvetica, sans-serif;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background-color: #37393b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#upgrade:hover{
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+    background-color: rgb(206, 79, 79);
 }
