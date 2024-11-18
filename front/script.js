@@ -3,8 +3,7 @@ let clicks = 0
 const showScore = document.getElementById('clicks')
 
 
-cookie.addEventListener('click', ()=>{
+cookie.addEventListener('click', () => {
     clicks++
-    showScore.innerHTML= clicks
-  
-    })
+    showScore.innerHTML = clicks
+})
