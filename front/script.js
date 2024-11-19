@@ -27,6 +27,11 @@ cookie.addEventListener('click', () => {
         upgrade.style.backgroundColor = "#F9D199"
         document.getElementById("upgrade").innerHTML = "UPGRADE TO PACIFIC PUNCH";
     }
+    if (clicks >= 5000){
+        upgrade.style.backgroundColor = "#FFFF00"
+        upgrade.style.Color = "#000000"
+        document.getElementById("upgrade").innerHTML = "UPGRADE TO  THE DOCTOR";
+    }
 });
 function UpgradeFunction(){
     if (clicks >= 50 && clicks < 200){
@@ -44,6 +49,10 @@ function UpgradeFunction(){
        if(clicks >= 2000 && clicks < 5000){
         markiplier = 20
         cookie.querySelector("img").src = "pacificpunchmonster.png"
+       }
+       if(clicks >= 5000 && clicks < 10000){
+        markiplier = 40
+        cookie.querySelector("img").src = "vr46monster.png"
        }
        
 }
