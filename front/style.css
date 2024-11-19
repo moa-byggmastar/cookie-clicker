@@ -31,10 +31,10 @@ h2 {
 
 .cookie img {
     padding: 2rem;
-    background-size: cover;
-    background-image: 308;
-
+    max-width: 500px;
+    max-height: 500px;
 }
+
 .cookie img:active {
     transform: scale(1.1);
 }
@@ -61,3 +61,4 @@ h2 {
     transform: scale(1.1);
     background-color: rgb(206, 79, 79);
 }
+ 
