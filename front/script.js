@@ -1,8 +1,12 @@
-const cookie = document.getElementById('cookie')
+const cookie = document.querySelector('.cookie')
 let clicks = 0
 let markiplier = 1
 const showScore = document.getElementById('clicks')
 const upgrade = document.getElementById('upgrade')
+
+cookie.ondragstart = () => {
+  return false;
+};
 
 cookie.addEventListener('click', () => {
     clicks +=markiplier ;
@@ -54,6 +58,7 @@ function kidneyStone() {
         alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
     }
 
+    showScore.innerHTML = clicks;
     setTimeout(kidneyStone, rand * 2000);
 }
 
