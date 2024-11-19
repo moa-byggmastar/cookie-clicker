@@ -8,7 +8,7 @@ cookie.addEventListener('click', () => {
     showScore.innerHTML = clicks;
     console.log("cock2")
     if (clicks >= 50) {
-        upgrade.style.backgroundColor = "#d92323"
+        upgrade.style.backgroundColor = "#ce4f4f"
         console.log("cock1")
     }
 
