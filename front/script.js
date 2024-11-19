@@ -13,6 +13,9 @@ cookie.addEventListener('click', () => {
         console.log("cock1")
     }
 
+    if (clicks >= 200) {
+        upgrade.innerHTML = "UPGRADE TO BAD APPLE"
+    }
 });
 function UpgradeFunction() {
     if (clicks >= 50 && clicks < 200) {
