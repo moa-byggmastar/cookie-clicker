@@ -1,8 +1,12 @@
-const cookie = document.getElementById('cookie')
+const cookie = document.querySelector('.cookie')
 let clicks = 0
 let markiplier = 1
 const showScore = document.getElementById('clicks')
 const upgrade = document.getElementById('upgrade')
+
+cookie.ondragstart = () => {
+    return false;
+};
 
 cookie.addEventListener('click', () => {
     clicks += markiplier;
