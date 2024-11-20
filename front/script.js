@@ -50,23 +50,24 @@ function UpgradeFunction() {
        
 }
 function kidneyStone() {
-    let min = 5;
-    let max = 2000;
-    let rand = Math.floor(Math.random() * (max - min + 1) + min); // Generate random number between 5 - 2000
-    if (clicks > 0) { 
-        if (clicks >= 10000) {
-            clicks -= 10000; 
-            alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
-        } else {
-            alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
-        }
-
+    const rand = Math.floor(Math.random() * 1000) + 1;
+    if (rand === 6) {
+        if (clicks > 0) { 
+            if (clicks >= 10000) {
+                clicks -= 10000; 
+                alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
+            } else {
+                alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
+            }
+        } 
+        
+    }
+   
         showScore.innerHTML = clicks; 
     }
-    setTimeout(rand);
-}
+    // setTimeout(rand);
+    setInterval(rand, 1000)
+
 
 kidneyStone();
-    }
-}
 
