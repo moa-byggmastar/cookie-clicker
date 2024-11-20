@@ -5,40 +5,33 @@ const showScore = document.getElementById('clicks')
 const upgrade = document.getElementById('upgrade')
 
 cookie.ondragstart = () => {
-  return false;
+    return false;
 };
 
 cookie.addEventListener('click', () => {
-    clicks +=markiplier ;
+    clicks += markiplier;
     showScore.innerHTML = clicks;
-    if (clicks >= 50 ){
-        upgrade.style.backgroundColor = "#FFFFFF"
-        document.getElementById("upgrade").innerHTML = "UPGRADE TO WHITE";
+    console.log("cock2")
+    if (clicks >= 50) {
+        upgrade.style.backgroundColor = "#ce4f4f"
+        console.log("cock1")
     }
-    if (clicks >= 200){
-        upgrade.style.backgroundColor = "#006400"
-        document.getElementById("upgrade").innerHTML = "UPGRADE TO BAD APPLE";
+
+    if (clicks >= 200) {
+        upgrade.innerHTML = "UPGRADE TO BAD APPLE"
     }
-    if (clicks >= 500){
-        upgrade.style.backgroundColor = "#FC0FC0"
-        document.getElementById("upgrade").innerHTML = "UPGRADE TO PIPELINE PUNCH";
-    }
-    if (clicks >= 2000){
-        upgrade.style.backgroundColor = "#F9D199"
-        document.getElementById("upgrade").innerHTML = "UPGRADE TO PACIFIC PUNCH";
-    }
-    if (clicks >= 5000){
+    if (clicks >= 5000) {
         upgrade.style.backgroundColor = "#FFFF00"
         upgrade.style.Color = "#000000"
         document.getElementById("upgrade").innerHTML = "UPGRADE TO  THE DOCTOR";
     }
 });
-function UpgradeFunction(){
-    if (clicks >= 50 && clicks < 200){
-     markiplier = 4
-     cookie.querySelector("img").src = "wmonster.png"
+function UpgradeFunction() {
+    if (clicks >= 50 && clicks < 200) {
+        markiplier = 4
+        cookie.querySelector("img").src = "wmonster.png"
     }
-     if(clicks >= 200 && clicks < 500){
+    else if (clicks >= 200) {
         markiplier = 8
         cookie.querySelector("img").src = "badapplemonster.png"
        }
@@ -74,4 +67,6 @@ function kidneyStone() {
 }
 
 kidneyStone();
+    }
+}
 
