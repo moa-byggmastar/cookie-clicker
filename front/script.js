@@ -34,39 +34,5 @@ function UpgradeFunction() {
     else if (clicks >= 200) {
         markiplier = 8
         cookie.querySelector("img").src = "badapplemonster.png"
-       }
-       if(clicks >= 500 && clicks < 2000){
-        markiplier = 12
-        cookie.querySelector("img").src = "pipelinepunchmonster.png"
-       }
-       if(clicks >= 2000 && clicks < 5000){
-        markiplier = 20
-        cookie.querySelector("img").src = "pacificpunchmonster.png"
-       }
-       if(clicks >= 5000 && clicks < 10000){
-        markiplier = 40
-        cookie.querySelector("img").src = "vr46monster.png"
-       }
-       
-}
-function kidneyStone() {
-    let min = 5;
-    let max = 2000;
-    let rand = Math.floor(Math.random() * (max - min + 1) + min); // Generate random number between 5 - 2000
-    if (clicks > 0) { 
-        if (clicks >= 10000) {
-            clicks -= 10000; 
-            alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
-        } else {
-            alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
-        }
-
-        showScore.innerHTML = clicks; 
-    }
-    setTimeout(rand);
-}
-
-kidneyStone();
     }
 }
-
