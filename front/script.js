@@ -39,7 +39,7 @@ cookie.addEventListener('click', () => {
     }
 });
 function UpgradeFunction() {
-    if (clicks >= 50 && clicks < 200) {
+    if (clicks >= 1 && clicks < 200) {
         markiplier = 4
         cookie.querySelector("img").src = "wmonster.png"
     }
@@ -83,3 +83,41 @@ setInterval(rand, 1000)
 
 kidneyStone();
 
+
+const minions = {
+    squirrel: { name: "Hyperactive Squirrel", cost: 100, cps: 1 },
+    gymbro: { name: "Gym Bro", cost: 500, cps: 5 },
+    gamer: { name: "Jittery Gamer", cost: 1000, cps: 10 }
+  };
+  
+  let cps = 0; 
+  
+
+  const minionSelect = document.getElementById('minion-select');
+  const buyMinionButton = document.getElementById('buy-minion');
+  const activeMinionsDiv = document.getElementById('active-minions');
+  
+  
+  buyMinionButton.addEventListener('click', () => {
+    const selectedMinion = minionSelect.value;
+  
+    if (selectedMinion && clicks >= minions[selectedMinion].cost) {
+      
+      clicks -= minions[selectedMinion].cost;
+      showScore.innerHTML = clicks;
+  
+      
+      cps += minions[selectedMinion].cps;
+  
+    
+      const newMinion = document.createElement('p');
+      newMinion.textContent = `${minions[selectedMinion].name} (+${minions[selectedMinion].cps} CPS)`;
+      activeMinionsDiv.appendChild(newMinion);
+  
+      alert(`You bought ${minions[selectedMinion].name}! CPS is now ${cps}.`);
+    } else {
+      alert("Not enough clicks to buy this minion!");
+    }
+  });
+  
+  
