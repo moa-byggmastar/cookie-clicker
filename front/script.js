@@ -11,19 +11,31 @@ cookie.ondragstart = () => {
 cookie.addEventListener('click', () => {
     clicks += markiplier;
     showScore.innerHTML = clicks;
-    console.log("cock2")
-    if (clicks >= 50) {
-        upgrade.style.backgroundColor = "#ce4f4f"
-        console.log("cock1")
-    }
 
+    if (clicks >= 50) {
+        document.getElementById("upgrade").innerHTML = "UPGRADE TO WHITE MONSTER";
+        upgrade.style.backgroundColor = "#FFFFFF" 
+        upgrade.style.Color = "#001000"
+    }
     if (clicks >= 200) {
-        upgrade.innerHTML = "UPGRADE TO BAD APPLE"
+        document.getElementById("upgrade").innerHTML = "UPGRADE TO BAD APPLE";
+        upgrade.style.backgroundColor = "#006400"
+        upgrade.style.Color = "#FFFFFF"
+    }
+    if (clicks >= 500) {
+        document.getElementById("upgrade").innerHTML = "UPGRADE TO PIPELINE PUNCH";
+        upgrade.style.backgroundColor = "#FF69B4"
+        upgrade.style.Color = "#001000"
+    }
+    if (clicks >= 2000) {
+        document.getElementById("upgrade").innerHTML = "UPGRADE TO PACIFIC PUNCH";
+         upgrade.style.backgroundColor = "#f6d7b0 "
+        upgrade.style.Color = "#001000"
     }
     if (clicks >= 5000) {
-        upgrade.style.backgroundColor = "#FFFF00"
-        upgrade.style.Color = "#000000"
         document.getElementById("upgrade").innerHTML = "UPGRADE TO  THE DOCTOR";
+        upgrade.style.backgroundColor = "#FFFF00"
+        upgrade.style.Color = "#001000"
     }
 });
 function UpgradeFunction() {
@@ -50,23 +62,24 @@ function UpgradeFunction() {
        
 }
 function kidneyStone() {
-    let min = 5;
-    let max = 2000;
-    let rand = Math.floor(Math.random() * (max - min + 1) + min); // Generate random number between 5 - 2000
-    if (clicks > 0) { 
-        if (clicks >= 10000) {
-            clicks -= 10000; 
-            alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
-        } else {
-            alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
-        }
-
+    const rand = Math.floor(Math.random() * 1000) + 1;
+    if (rand === 6) {
+        if (clicks > 0) { 
+            if (clicks >= 10000) {
+                clicks -= 10000; 
+                alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
+            } else {
+                alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
+            }
+        } 
+        
+    }
+   
         showScore.innerHTML = clicks; 
     }
-    setTimeout(rand);
-}
+    // setTimeout(rand);
+    setInterval(rand, 1000)
+
 
 kidneyStone();
-    }
-}
 
