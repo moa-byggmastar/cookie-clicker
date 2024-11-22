@@ -11,11 +11,11 @@ cookie.ondragstart = () => {
 cookie.addEventListener('click', () => {
     clicks += markiplier;
     showScore.innerHTML = clicks;
-   
+
     if (clicks >= 50) {
         document.getElementById("upgrade").innerHTML = "UPGRADE TO WHITE MONSTER";
-         upgrade.style.backgroundColor = "#FFFFFF" 
-        upgrade.style.Color = "#000000"
+        upgrade.style.backgroundColor = "#FFFFFF" 
+        upgrade.style.Color = "#001000"
     }
     if (clicks >= 200) {
         document.getElementById("upgrade").innerHTML = "UPGRADE TO BAD APPLE";
@@ -24,18 +24,18 @@ cookie.addEventListener('click', () => {
     }
     if (clicks >= 500) {
         document.getElementById("upgrade").innerHTML = "UPGRADE TO PIPELINE PUNCH";
-                upgrade.style.backgroundColor = "#FF69B4"
-        upgrade.style.Color = "#000000"
+        upgrade.style.backgroundColor = "#FF69B4"
+        upgrade.style.Color = "#001000"
     }
     if (clicks >= 2000) {
         document.getElementById("upgrade").innerHTML = "UPGRADE TO PACIFIC PUNCH";
          upgrade.style.backgroundColor = "#f6d7b0 "
-        upgrade.style.Color = "#000000"
+        upgrade.style.Color = "#001000"
     }
     if (clicks >= 5000) {
         document.getElementById("upgrade").innerHTML = "UPGRADE TO  THE DOCTOR";
         upgrade.style.backgroundColor = "#FFFF00"
-        upgrade.style.Color = "#000000"
+        upgrade.style.Color = "#001000"
     }
 });
 function UpgradeFunction() {
