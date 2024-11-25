@@ -39,27 +39,27 @@ function UpgradeFunction() {
     }
 
 }
-function kidneyStone() {
-    const rand = Math.floor(Math.random() * 1000) + 1;
-    if (rand === 6) {
-        if (clicks > 0) {
-            if (clicks >= 10000) {
-                clicks -= 10000;
-                alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
-            } else {
-                alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
-            }
-        }
+// function kidneyStone() {
+//     const rand = Math.floor(Math.random() * 1000) + 1;
+//     if (rand === 6) {
+//         if (clicks > 0) {
+//             if (clicks >= 10000) {
+//                 clicks -= 10000;
+//                 alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
+//             } else {
+//                 alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
+//             }
+//         }
 
-    }
+//     }
 
-    showScore.innerHTML = clicks;
-}
+//     showScore.innerHTML = clicks;
+// }
 // setTimeout(rand);
-setInterval(rand, 1000)
+// setInterval(rand, 1000)
 
 
-kidneyStone();
+// kidneyStone();
 
 
 
