@@ -13,8 +13,8 @@ cookie.addEventListener('click', () => {
     clicks += markiplier;
     showScore.innerHTML = clicks;
 
-    // Update the upgrade button depending on the current clicks
     updateUpgradeButton();
+
 });
 
 function updateUpgradeButton() {
@@ -44,6 +44,7 @@ function updateUpgradeButton() {
         upgrade.style.backgroundColor = "#3a3c3e";
         upgrade.style.color = "#FFFFFF";
     }
+<<<<<<< HEAD
 }
 
 
@@ -105,3 +106,44 @@ function UpgradeFunction() {
 // kidneyStone();
 
 UpgradeFunction()
+=======
+    else if (clicks >= 200) {
+        markiplier = 8
+        cookie.querySelector("img").src = "badapplemonster.png"
+    }
+    if (clicks >= 500 && clicks < 2000) {
+        markiplier = 12
+        cookie.querySelector("img").src = "pipelinepunchmonster.png"
+    }
+    if (clicks >= 2000 && clicks < 5000) {
+        markiplier = 20
+        cookie.querySelector("img").src = "pacificpunchmonster.png"
+    }
+    if (clicks >= 5000 && clicks < 10000) {
+        markiplier = 40
+        cookie.querySelector("img").src = "vr46monster.png"
+    }
+
+}
+function kidneyStone() {
+    const rand = Math.floor(Math.random() * 1000) + 1;
+    if (rand === 6) {
+        if (clicks > 0) {
+            if (clicks >= 10000) {
+                clicks -= 10000;
+                alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
+            } else {
+                alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
+            }
+        }
+
+    }
+
+    showScore.innerHTML = clicks;
+}
+// setTimeout(rand);
+setInterval(rand, 1000)
+
+
+kidneyStone();
+>>>>>>> 05b4f077f4f59c17a186ef0c4ca47421ea183004
