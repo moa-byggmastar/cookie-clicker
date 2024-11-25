@@ -51,12 +51,13 @@ h2 {
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
-    background-color: #3a3c3e;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    color: #ffffff;
+    background-color: #3a3b3e;
     text-align: center;
-    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 6px rgba(170, 44, 44, 0.3);
     margin: 1rem;
 }
 
@@ -109,6 +110,57 @@ header {
     background-color: #1a1b1b;
     color: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #minion-shop {
