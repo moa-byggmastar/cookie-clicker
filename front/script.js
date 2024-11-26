@@ -35,7 +35,7 @@ function updateUpgradeButton() {
         upgrade.innerHTML = "UPGRADE TO BAD APPLE";
         upgrade.style.backgroundColor = "#006400";
         upgrade.style.color = "#FFFFFF";
-    } else if (clicks >= 50 && upgradeLevel  == 0) {
+    } else if (clicks >= 50 && upgradeLevel == 0) {
         upgrade.innerHTML = "UPGRADE TO WHITE MONSTER";
         upgrade.style.backgroundColor = "#FFFFFF";
         upgrade.style.color = "#001000";
@@ -46,11 +46,11 @@ function updateUpgradeButton() {
     }
 }
 function UpgradeFunction() {
-       upgrade.addEventListener('click', () => {
+    upgrade.addEventListener('click', () => {
         if (clicks >= 50 && upgradeLevel == 0) {
-            markiplier = 4; 
+            markiplier = 4;
             upgradeLevel = upgradeLevel + 1
-             cookie.querySelector("img").src = "wmonster.png"
+            cookie.querySelector("img").src = "wmonster.png"
         } else if (clicks >= 200 && upgradeLevel == 1) {
             markiplier = 8;
             upgradeLevel = upgradeLevel + 1
@@ -66,13 +66,13 @@ function UpgradeFunction() {
         } else if (clicks >= 5000 && upgradeLevel == 4) {
             markiplier = 30;
             upgradeLevel = upgradeLevel + 1
-              cookie.querySelector("img").src = "vr46monster.png"
+            cookie.querySelector("img").src = "vr46monster.png"
 
         } else {
             upgrade.innerHTML = "NEXT UPGRADE LOCKED";
             upgrade.style.backgroundColor = "#3a3c3e";
             upgrade.style.color = "#FFFFFF";
-            return; 
+            return;
         }
 
         showScore.innerHTML = clicks; // Update the score display
@@ -136,7 +136,6 @@ UpgradeFunction()
 
 
 
-
 const minionSelect = document.getElementById('minion-select');
 const buyMinionButton = document.getElementById('buy-minion');
 const activeMinionsDiv = document.getElementById('active-minions');
@@ -161,7 +160,7 @@ buyMinionButton.addEventListener('click', () => {
 
     if (selectedMinion && clicks >= minions[selectedMinion].cost) {
         clicks -= minions[selectedMinion].cost;
-        updateScore();  
+        updateScore();
 
         totalCPS += minions[selectedMinion].cps;
 
@@ -177,5 +176,5 @@ buyMinionButton.addEventListener('click', () => {
 
 
 setInterval(() => {
-    clicks += totalCPS;  
+    clicks += totalCPS;
 }, 1000);
