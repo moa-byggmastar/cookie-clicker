@@ -35,7 +35,8 @@ h2 {
     max-width: 500px;
     max-height: 500px;
     user-select: none;
-    ;
+    display: flex;
+
 }
 
 .cookie img:active {
@@ -108,4 +109,10 @@ header {
     padding: 10px 0px;
     background-color: #1a1b1b;
     color: white;
+}
+.monsterparent{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
