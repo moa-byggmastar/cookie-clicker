@@ -3,7 +3,7 @@ let clicks = 0
 let markiplier = 1
 const showScore = document.getElementById('clicks')
 const upgrade = document.getElementById('upgrade')
-let upgradeLevel = 0
+let upgradeLevel = 1
 
 cookie.ondragstart = () => {
     return false;
@@ -19,23 +19,38 @@ cookie.addEventListener('click', () => {
 
 function updateUpgradeButton() {
     console.log(clicks, upgradeLevel)
-    if (clicks >= 5000 && upgradeLevel == 4) {
-        upgrade.innerHTML = "UPGRADE TO THE DOCTOR";
+    if (clicks >= 50000 && upgradeLevel == 8) {
+        upgrade.innerHTML = "UPGRADE TO THE MANGO LOCO";
+        upgrade.style.backgroundColor = "#90D5FF";
+        upgrade.style.color = "#001000";
+    }
+    else if (clicks >= 20000 && upgradeLevel == 7) {
+         upgrade.innerHTML = "UPGRADE TO MONSTER MULE";
+         upgrade.style.backgroundColor = "#3D2808";
+         upgrade.style.color = "#001000";
+    }
+    else if (clicks >= 10000 && upgradeLevel == 6) {
+        upgrade.innerHTML = "UPGRADE TO MONARCH";
+        upgrade.style.backgroundColor = "#FA8072";
+        upgrade.style.color = "#001000";
+    }
+    else if (clicks >= 5000 && upgradeLevel == 5) {
+        upgrade.innerHTML = "UPGRADE TO DOCTOR";
         upgrade.style.backgroundColor = "#FFFF00";
         upgrade.style.color = "#001000";
-    } else if (clicks >= 2000 && upgradeLevel == 3) {
+    } else if (clicks >= 2000 && upgradeLevel == 4) {
         upgrade.innerHTML = "UPGRADE TO PACIFIC PUNCH";
         upgrade.style.backgroundColor = "#f6d7b0";
         upgrade.style.color = "#001000";
-    } else if (clicks >= 500 && upgradeLevel == 2) {
+    } else if (clicks >= 500 && upgradeLevel == 3) {
         upgrade.innerHTML = "UPGRADE TO PIPELINE PUNCH";
         upgrade.style.backgroundColor = "#FF69B4";
         upgrade.style.color = "#001000";
-    } else if (clicks >= 200 && upgradeLevel == 1) {
+    } else if (clicks >= 200 && upgradeLevel == 2) {
         upgrade.innerHTML = "UPGRADE TO BAD APPLE";
         upgrade.style.backgroundColor = "#006400";
         upgrade.style.color = "#FFFFFF";
-    } else if (clicks >= 50 && upgradeLevel == 0) {
+    } else if (clicks >= 50 && upgradeLevel == 1) {
         upgrade.innerHTML = "UPGRADE TO WHITE MONSTER";
         upgrade.style.backgroundColor = "#FFFFFF";
         upgrade.style.color = "#001000";
@@ -47,31 +62,47 @@ function updateUpgradeButton() {
 }
 function UpgradeFunction() {
     upgrade.addEventListener('click', () => {
-        if (clicks >= 50 && upgradeLevel == 0) {
+        if (clicks >= 50 && upgradeLevel == 1) {
             markiplier = 4;
             upgradeLevel = upgradeLevel + 1
             cookie.querySelector("img").src = "wmonster.png"
             Explosion()
-        } else if (clicks >= 200 && upgradeLevel == 1) {
+        } else if (clicks >= 200 && upgradeLevel == 2) {
             markiplier = 8;
             upgradeLevel = upgradeLevel + 1
             cookie.querySelector("img").src = "badapplemonster.png"
             Explosion()
-        } else if (clicks >= 500 && upgradeLevel == 2) {
+        } else if (clicks >= 500 && upgradeLevel == 3) {
             markiplier = 12;
             upgradeLevel = upgradeLevel + 1
             cookie.querySelector("img").src = "pipelinepunchmonster.png"
             Explosion()
-        } else if (clicks >= 2000 && upgradeLevel == 3) {
+        } else if (clicks >= 2000 && upgradeLevel == 4) {
             markiplier = 20;
             upgradeLevel = upgradeLevel + 1
             cookie.querySelector("img").src = "pacificpunchmonster.png"
             Explosion()
-        } else if (clicks >= 5000 && upgradeLevel == 4) {
+        } else if (clicks >= 5000 && upgradeLevel == 5) {
             markiplier = 30;
             upgradeLevel = upgradeLevel + 1
             cookie.querySelector("img").src = "vr46monster.png"
             Explosion()
+        } else if (clicks >= 10000 && upgradeLevel == 6) {
+            markiplier = 60;
+            upgradeLevel = upgradeLevel + 1
+            cookie.querySelector("img").src = "monarch.png"
+            Explosion()
+        } else if (clicks >= 20000 && upgradeLevel == 7) {
+            markiplier = 120;
+            upgradeLevel = upgradeLevel + 1
+            cookie.querySelector("img").src = "monstermule.png"
+            Explosion()
+        } else if (clicks >= 50000 && upgradeLevel == 8) {
+            markiplier = 360;
+            upgradeLevel = upgradeLevel + 1
+            cookie.querySelector("img").src = "mangoloco.png"
+            Explosion()
+            
         } else {
             upgrade.innerHTML = "NEXT UPGRADE LOCKED";
             upgrade.style.backgroundColor = "#3a3c3e";
@@ -105,7 +136,7 @@ function Explosion() {
 }
 
 function kidneyStone() {
-    const rand = Math.floor(Math.random() * 2000) + 1; // 1/2000 chance
+    const rand = Math.floor(Math.random() * 1000) + 1; // 1/1000 chance
     if (rand === 1) { // If the random number is 1, the "attack" begins
         if (clicks > 0) {
             if (clicks >= 10000) {
