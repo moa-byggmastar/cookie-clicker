@@ -16,73 +16,117 @@ cookie.addEventListener('click', () => {
     updateUpgradeButton();
 
 });
-function UpgradeFunction() {
-    if (clicks >= 50 && clicks < 200) {
-        markiplier = 4
-        cookie.querySelector("img").src = "wmonster.png"
-    }
-    else if (clicks >= 200) {
-        markiplier = 8
-        cookie.querySelector("img").src = "badapplemonster.png"
-    }
-    if (clicks >= 500 && clicks < 2000) {
-        markiplier = 12
-        cookie.querySelector("img").src = "pipelinepunchmonster.png"
-    }
-    if (clicks >= 2000 && clicks < 5000) {
-        markiplier = 20
-        cookie.querySelector("img").src = "pacificpunchmonster.png"
-    }
-    if (clicks >= 5000 && clicks < 10000) {
-        markiplier = 40
-        cookie.querySelector("img").src = "vr46monster.png"
-    }
 
+function updateUpgradeButton() {
+    console.log(clicks, upgradeLevel)
+    if (clicks >= 5000 && upgradeLevel == 4) {
+        upgrade.innerHTML = "UPGRADE TO THE DOCTOR";
+        upgrade.style.backgroundColor = "#FFFF00";
+        upgrade.style.color = "#001000";
+    } else if (clicks >= 2000 && upgradeLevel == 3) {
+        upgrade.innerHTML = "UPGRADE TO PACIFIC PUNCH";
+        upgrade.style.backgroundColor = "#f6d7b0";
+        upgrade.style.color = "#001000";
+    } else if (clicks >= 500 && upgradeLevel == 2) {
+        upgrade.innerHTML = "UPGRADE TO PIPELINE PUNCH";
+        upgrade.style.backgroundColor = "#FF69B4";
+        upgrade.style.color = "#001000";
+    } else if (clicks >= 200 && upgradeLevel == 1) {
+        upgrade.innerHTML = "UPGRADE TO BAD APPLE";
+        upgrade.style.backgroundColor = "#006400";
+        upgrade.style.color = "#FFFFFF";
+    } else if (clicks >= 50 && upgradeLevel == 0) {
+        upgrade.innerHTML = "UPGRADE TO WHITE MONSTER";
+        upgrade.style.backgroundColor = "#FFFFFF";
+        upgrade.style.color = "#001000";
+    } else {
+        upgrade.innerHTML = "NEXT UPGRADE LOCKED";
+        upgrade.style.backgroundColor = "#3a3c3e";
+        upgrade.style.color = "#FFFFFF";
+    }
 }
-function kidneyStone() {
-    const rand = Math.floor(Math.random() * 1000) + 1;
-    if (rand === 6) {
-        if (clicks > 0) {
-            if (clicks >= 10000) {
-                clicks -= 10000;
-                alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
-            } else {
-                alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
-            }
+function UpgradeFunction() {
+    upgrade.addEventListener('click', () => {
+        if (clicks >= 50 && upgradeLevel == 0) {
+            markiplier = 4;
+            upgradeLevel = upgradeLevel + 1
+            cookie.querySelector("img").src = "wmonster.png"
+            Explosion()
+        } else if (clicks >= 200 && upgradeLevel == 1) {
+            markiplier = 8;
+            upgradeLevel = upgradeLevel + 1
+            cookie.querySelector("img").src = "badapplemonster.png"
+            Explosion()
+        } else if (clicks >= 500 && upgradeLevel == 2) {
+            markiplier = 12;
+            upgradeLevel = upgradeLevel + 1
+            cookie.querySelector("img").src = "pipelinepunchmonster.png"
+            Explosion()
+        } else if (clicks >= 2000 && upgradeLevel == 3) {
+            markiplier = 20;
+            upgradeLevel = upgradeLevel + 1
+            cookie.querySelector("img").src = "pacificpunchmonster.png"
+            Explosion()
+        } else if (clicks >= 5000 && upgradeLevel == 4) {
+            markiplier = 30;
+            upgradeLevel = upgradeLevel + 1
+            cookie.querySelector("img").src = "vr46monster.png"
+            Explosion()
+        } else {
+            upgrade.innerHTML = "NEXT UPGRADE LOCKED";
+            upgrade.style.backgroundColor = "#3a3c3e";
+            upgrade.style.color = "#FFFFFF";
+            return;
         }
 
-    }
-
-    showScore.innerHTML = clicks;
+        showScore.innerHTML = clicks; // Update the score display
+        updateUpgradeButton(); // Update button appearance after upgrade
+    });
 }
-// setTimeout(rand);
-setInterval(rand, 1000)
+function Explosion() {
+    // Create a new img element
+    const explosion = document.createElement("img");
+    explosion.src = "cool epic explosion reddit chungus keanu reeves.gif";
+    explosion.alt = "Explosion";
+    explosion.style.top = "50%";
+    explosion.style.left = "50%";
+    explosion.style.transform = "translate(-50%, -50%)";
+    explosion.style.zIndex = "1000";
+    explosion.style.width = "500px";
+    explosion.style.position = "absolute";
+
+    // Append the explosion to the body
+    document.body.appendChild(explosion);
+
+    // Remove the explosion after 900 milliseconds
+    setTimeout(() => {
+        explosion.remove();
+    }, 900);
+}
+
+// function kidneyStone() {
+//     const rand = Math.floor(Math.random() * 1000) + 1;
+//     if (rand === 6) {
+//         if (clicks > 0) { 
+//             if (clicks >= 10000) {
+//                 clicks -= 10000; 
+//                 alert(KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks});
+//             } else {
+//                 alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
+//             }
+//         } 
+
+//     }
+
+//         showScore.innerHTML = clicks; 
+//     }
+//     // setTimeout(rand);
+//     setInterval(rand, 1000)
 
 
-kidneyStone();
+// kidneyStone();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+UpgradeFunction()
 
 
 
@@ -120,7 +164,7 @@ buyMinionButton.addEventListener('click', () => {
 
     if (selectedMinion && clicks >= minions[selectedMinion].cost) {
         clicks -= minions[selectedMinion].cost;
-        updateScore();  
+        updateScore();
 
         totalCPS += minions[selectedMinion].cps;
 
@@ -136,5 +180,5 @@ buyMinionButton.addEventListener('click', () => {
 
 
 setInterval(() => {
-    clicks += totalCPS;  
+    clicks += totalCPS;
 }, 1000);
