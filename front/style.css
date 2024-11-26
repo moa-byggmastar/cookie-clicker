@@ -35,7 +35,8 @@ h2 {
     max-width: 500px;
     max-height: 500px;
     user-select: none;
-    ;
+    display: flex;
+
 }
 
 .cookie img:active {
@@ -44,6 +45,13 @@ h2 {
 
 .cookie img:hover {
     cursor: pointer;
+}
+
+.monsterparent{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #upgrade {
@@ -214,3 +222,5 @@ header {
 #minion-shop:hover #minion-dropdown {
     display: block;
 }
+
+
