@@ -104,39 +104,26 @@ function Explosion() {
     }, 900);
 }
 
-// function kidneyStone() {
-//     const rand = Math.floor(Math.random() * 1000) + 1;
-//     if (rand === 6) {
-//         if (clicks > 0) { 
-//             if (clicks >= 10000) {
-//                 clicks -= 10000; 
-//                 alert(KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks});
-//             } else {
-//                 alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
-//             }
-//         } 
+function kidneyStone() {
+    const rand = Math.floor(Math.random() * 2000) + 1; // 1/2000 chance
+    if (rand === 1) { // If the random number is 1, the "attack" begins
+        if (clicks > 0) {
+            if (clicks >= 10000) {
+                clicks -= 10000;
+                alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
+            } else {
+                alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
+            }
+        }
+    }
+    showScore.innerHTML = clicks; // Update the score display
+}
 
-//     }
-
-//         showScore.innerHTML = clicks; 
-//     }
-//     // setTimeout(rand);
-//     setInterval(rand, 1000)
-
-
-// kidneyStone();
+// Run the function every second
+setInterval(kidneyStone, 1000);
+kidneyStone();
 
 UpgradeFunction()
-
-
-
-
-
-
-
-
-
-
 
 
 
