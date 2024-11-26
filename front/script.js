@@ -35,7 +35,7 @@ function updateUpgradeButton() {
         upgrade.innerHTML = "UPGRADE TO BAD APPLE";
         upgrade.style.backgroundColor = "#006400";
         upgrade.style.color = "#FFFFFF";
-    } else if (clicks >= 50 && upgradeLevel  == 0) {
+    } else if (clicks >= 50 && upgradeLevel == 0) {
         upgrade.innerHTML = "UPGRADE TO WHITE MONSTER";
         upgrade.style.backgroundColor = "#FFFFFF";
         upgrade.style.color = "#001000";
@@ -46,12 +46,12 @@ function updateUpgradeButton() {
     }
 }
 function UpgradeFunction() {
-       upgrade.addEventListener('click', () => {
+    upgrade.addEventListener('click', () => {
         if (clicks >= 50 && upgradeLevel == 0) {
-            markiplier = 4; 
+            markiplier = 4;
             upgradeLevel = upgradeLevel + 1
-             cookie.querySelector("img").src = "wmonster.png"
-             Explosion()
+            cookie.querySelector("img").src = "wmonster.png"
+            Explosion()
         } else if (clicks >= 200 && upgradeLevel == 1) {
             markiplier = 8;
             upgradeLevel = upgradeLevel + 1
@@ -70,13 +70,13 @@ function UpgradeFunction() {
         } else if (clicks >= 5000 && upgradeLevel == 4) {
             markiplier = 30;
             upgradeLevel = upgradeLevel + 1
-              cookie.querySelector("img").src = "vr46monster.png"
-              Explosion()
+            cookie.querySelector("img").src = "vr46monster.png"
+            Explosion()
         } else {
             upgrade.innerHTML = "NEXT UPGRADE LOCKED";
             upgrade.style.backgroundColor = "#3a3c3e";
             upgrade.style.color = "#FFFFFF";
-            return; 
+            return;
         }
 
         showScore.innerHTML = clicks; // Update the score display
@@ -93,7 +93,7 @@ function Explosion() {
     explosion.style.transform = "translate(-50%, -50%)";
     explosion.style.zIndex = "1000";
     explosion.style.width = "500px";
-    explosion.style.position ="absolute";
+    explosion.style.position = "absolute";
 
     // Append the explosion to the body
     document.body.appendChild(explosion);
@@ -164,7 +164,7 @@ buyMinionButton.addEventListener('click', () => {
 
     if (selectedMinion && clicks >= minions[selectedMinion].cost) {
         clicks -= minions[selectedMinion].cost;
-        updateScore();  
+        updateScore();
 
         totalCPS += minions[selectedMinion].cps;
 
@@ -180,5 +180,5 @@ buyMinionButton.addEventListener('click', () => {
 
 
 setInterval(() => {
-    clicks += totalCPS;  
+    clicks += totalCPS;
 }, 1000);
