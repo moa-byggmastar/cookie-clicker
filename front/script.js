@@ -147,6 +147,12 @@ function UpgradeFunction() {
 }
 function Explosion() {
 
+        showScore.innerHTML = clicks; 
+        updateUpgradeButton(); 
+    });
+}
+function Explosion() {
+   
     const explosion = document.createElement("img");
     explosion.src = "cool epic explosion reddit chungus keanu reeves.gif";
     explosion.alt = "Explosion";
@@ -161,6 +167,10 @@ function Explosion() {
     document.body.appendChild(explosion);
 
 
+   
+    document.body.appendChild(explosion);
+
+    
     setTimeout(() => {
         explosion.remove();
     }, 900);
@@ -169,6 +179,8 @@ function Explosion() {
 function kidneyStone() {
     const rand = Math.floor(Math.random() * 1000) + 1;
     if (rand === 1) {
+    const rand = Math.floor(Math.random() * 1000) + 1; 
+    if (rand === 1) { 
         if (clicks > 0) {
             if (clicks >= 10000) {
                 clicks -= 10000;
@@ -179,6 +191,7 @@ function kidneyStone() {
         }
     }
     showScore.innerHTML = clicks;
+    showScore.innerHTML = clicks; 
 }
 
 
@@ -202,7 +215,18 @@ const minions = {
     gamer: { name: "Jittery Gamer", cost: 10000, cps: 20 }
 };
 
-let totalCPS = 0;
+let totalCPS = 0; 
+ 
+
+
+minionShopButton.addEventListener('click', () => {
+    if (minionDropdown.style.display === 'block') {
+        minionDropdown.style.display = 'none';
+    } else {
+        minionDropdown.style.display = 'block';  
+    }
+});
+
 
 
 
@@ -217,6 +241,8 @@ minionShopButton.addEventListener('click', () => {
 
 function updateScore() {
     document.getElementById('clicks').textContent = clicks;
+    document.getElementById('clicks').textContent = clicks; 
+    showScore.innerHTML = `${clicks}`;  // Update the displayed score
 }
 
 
@@ -224,7 +250,7 @@ updateScore();
 
 
 buyMinionButton.addEventListener('click', () => {
-    const selectedMinion = minionSelect.value;
+    const selectedMinion = minionSelect.value; 
 
 
     if (selectedMinion && clicks >= minions[selectedMinion].cost) {
@@ -233,15 +259,21 @@ buyMinionButton.addEventListener('click', () => {
 
         updateScore();
 
+   
+    if (selectedMinion && clicks >= minions[selectedMinion].cost) {
+        clicks -= minions[selectedMinion].cost; 
+        totalCPS += minions[selectedMinion].cps; 
 
+        updateScore(); 
+
+        
         const newMinion = document.createElement('p');
         newMinion.textContent = `${minions[selectedMinion].name} (+${minions[selectedMinion].cps} CPS)`;
         activeMinionsDiv.appendChild(newMinion);
 
-
         alert(`You bought ${minions[selectedMinion].name}! CPS is now ${totalCPS}.`);
     } else {
-        alert("Not enough clicks to buy this minion!");
+        alert("Not enough clicks to buy this minion!"); 
     }
 });
 
