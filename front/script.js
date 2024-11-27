@@ -189,7 +189,7 @@ function kidneyStone() {
                     alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
                 }
             }
-        }
+        }}
         showScore.innerHTML = clicks;
         showScore.innerHTML = clicks;
     }
