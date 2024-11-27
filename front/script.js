@@ -7,7 +7,7 @@ let upgradeLevel = 1;
 
 // Rebirth Variables
 let rebirths = 0; // Track rebirth count
-let rebirthMulti =0;
+let rebirthMulti = 0;
 let rebirthReq = 99999; // Initial rebirth requirement
 
 // Rebirth Button
@@ -141,12 +141,12 @@ function UpgradeFunction() {
             return;
         }
 
-        showScore.innerHTML = clicks; // Update the score display
-        updateUpgradeButton(); // Update button appearance after upgrade
+        showScore.innerHTML = clicks;
+        updateUpgradeButton();
     });
 }
 function Explosion() {
-    // Create a new img element
+
     const explosion = document.createElement("img");
     explosion.src = "cool epic explosion reddit chungus keanu reeves.gif";
     explosion.alt = "Explosion";
@@ -157,18 +157,18 @@ function Explosion() {
     explosion.style.width = "500px";
     explosion.style.position = "absolute";
 
-    // Append the explosion to the body
+
     document.body.appendChild(explosion);
 
-    // Remove the explosion after 900 milliseconds
+
     setTimeout(() => {
         explosion.remove();
     }, 900);
 }
 
 function kidneyStone() {
-    const rand = Math.floor(Math.random() * 1000) + 1; // 1/1000 chance
-    if (rand === 1) { // If the random number is 1, the "attack" begins
+    const rand = Math.floor(Math.random() * 1000) + 1;
+    if (rand === 1) {
         if (clicks > 0) {
             if (clicks >= 10000) {
                 clicks -= 10000;
@@ -178,10 +178,10 @@ function kidneyStone() {
             }
         }
     }
-    showScore.innerHTML = clicks; // Update the score display
+    showScore.innerHTML = clicks;
 }
 
-// Run the function every second
+
 setInterval(kidneyStone, 1000);
 kidneyStone();
 
@@ -189,9 +189,12 @@ UpgradeFunction()
 
 
 
+const minionShopButton = document.getElementById('minion-shop-button');
+const minionDropdown = document.getElementById('minion-dropdown');
 const minionSelect = document.getElementById('minion-select');
 const buyMinionButton = document.getElementById('buy-minion');
 const activeMinionsDiv = document.getElementById('active-minions');
+
 
 const minions = {
     squirrel: { name: "Hyperactive Squirrel", cost: 1000, cps: 2 },
@@ -201,25 +204,40 @@ const minions = {
 
 let totalCPS = 0;
 
+
+
+minionShopButton.addEventListener('click', () => {
+    if (minionDropdown.style.display === 'block') {
+        minionDropdown.style.display = 'none';
+    } else {
+        minionDropdown.style.display = 'block';
+    }
+});
+
+
 function updateScore() {
-    showScore.innerHTML = `${clicks}`;  // Update the displayed score
+    document.getElementById('clicks').textContent = clicks;
 }
 
 
 updateScore();
 
+
 buyMinionButton.addEventListener('click', () => {
     const selectedMinion = minionSelect.value;
 
+
     if (selectedMinion && clicks >= minions[selectedMinion].cost) {
         clicks -= minions[selectedMinion].cost;
+        totalCPS += minions[selectedMinion].cps;
+
         updateScore();
 
-        totalCPS += minions[selectedMinion].cps;
 
         const newMinion = document.createElement('p');
         newMinion.textContent = `${minions[selectedMinion].name} (+${minions[selectedMinion].cps} CPS)`;
         activeMinionsDiv.appendChild(newMinion);
+
 
         alert(`You bought ${minions[selectedMinion].name}! CPS is now ${totalCPS}.`);
     } else {
@@ -230,4 +248,6 @@ buyMinionButton.addEventListener('click', () => {
 
 setInterval(() => {
     clicks += totalCPS;
+    updateScore();
 }, 1000);
+
