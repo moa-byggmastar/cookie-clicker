@@ -92,6 +92,7 @@ function updateUpgradeButton() {
         upgrade.style.color = "#FFFFFF";
     }
 }
+
 function UpgradeFunction() {
     upgrade.addEventListener('click', () => {
         if (clicks >= 50 && upgradeLevel == 1) {
@@ -163,13 +164,9 @@ function Explosion() {
     explosion.style.width = "500px";
     explosion.style.position = "absolute";
 
-
     document.body.appendChild(explosion);
 
-
-
     document.body.appendChild(explosion);
-
 
     setTimeout(() => {
         explosion.remove();
@@ -205,7 +202,6 @@ const minionDropdown = document.getElementById('minion-dropdown');
 const minionSelect = document.getElementById('minion-select');
 const buyMinionButton = document.getElementById('buy-minion');
 const activeMinionsDiv = document.getElementById('active-minions');
-
 
 const minions = {
     squirrel: { name: "Hyperactive Squirrel", cost: 1000, cps: 2 },
@@ -249,7 +245,6 @@ buyMinionButton.addEventListener('click', () => {
         alert("Not enough clicks to buy this minion!");
     }
 });
-
 
 setInterval(() => {
     clicks += totalCPS;
