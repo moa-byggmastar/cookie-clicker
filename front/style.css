@@ -92,9 +92,9 @@ header {
 
 #rebirth {
     display: inline-block;
-    position: fixed; 
+    position: fixed;
     right: 5%;
-    bottom:50%;
+    bottom: 50%;
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
@@ -108,61 +108,12 @@ header {
     margin: 1rem;
     user-select: none;
 }
-#rebirth:hover{
+
+#rebirth:hover {
     transition-duration: 0.5s;
     transform: scale(1.1);
     background-color: rgb(49, 49, 54);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #minion-shop {
     position: fixed;
