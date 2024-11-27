@@ -90,6 +90,29 @@ header {
     user-select: none;
 }
 
+#rebirth {
+    display: inline-block;
+    position: fixed; 
+    right: 5%;
+    bottom:50%;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #082479;
+    text-align: center;
+    box-shadow: 0 5px 6px rgba(170, 44, 44, 0.3);
+    margin: 1rem;
+    user-select: none;
+}
+#rebirth:hover{
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+    background-color: rgb(49, 49, 54);
+}
 
 
 
