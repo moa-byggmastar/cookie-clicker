@@ -7,7 +7,7 @@ let upgradeLevel = 1;
 
 // Rebirth Variables
 let rebirths = 0; // Track rebirth count
-let rebirthMulti =0;
+let rebirthMulti = 0;
 let rebirthReq = 99999; // Initial rebirth requirement
 
 // Rebirth Button
@@ -59,7 +59,7 @@ function updateUpgradeButton() {
     else if (clicks >= 20000 && upgradeLevel == 7) {
         upgrade.innerHTML = "UPGRADE TO MONSTER MULE";
         upgrade.style.backgroundColor = "#3D2808";
-        upgrade.style.color = "#001000";
+        upgrade.style.color = "#FFFFFF";
     }
     else if (clicks >= 10000 && upgradeLevel == 6) {
         upgrade.innerHTML = "UPGRADE TO MONARCH";
@@ -141,12 +141,18 @@ function UpgradeFunction() {
             return;
         }
 
-        showScore.innerHTML = clicks; // Update the score display
-        updateUpgradeButton(); // Update button appearance after upgrade
+        showScore.innerHTML = clicks;
+        updateUpgradeButton();
     });
 }
 function Explosion() {
-    // Create a new img element
+
+    showScore.innerHTML = clicks;
+    updateUpgradeButton();
+};
+
+function Explosion() {
+
     const explosion = document.createElement("img");
     explosion.src = "cool epic explosion reddit chungus keanu reeves.gif";
     explosion.alt = "Explosion";
@@ -157,77 +163,114 @@ function Explosion() {
     explosion.style.width = "500px";
     explosion.style.position = "absolute";
 
-    // Append the explosion to the body
+
     document.body.appendChild(explosion);
 
-    // Remove the explosion after 900 milliseconds
+
+
+    document.body.appendChild(explosion);
+
+
     setTimeout(() => {
         explosion.remove();
     }, 900);
 }
 
 function kidneyStone() {
-    const rand = Math.floor(Math.random() * 1000) + 1; // 1/1000 chance
-    if (rand === 1) { // If the random number is 1, the "attack" begins
-        if (clicks > 0) {
-            if (clicks >= 10000) {
-                clicks -= 10000;
-                alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
-            } else {
-                alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
+    const rand = Math.floor(Math.random() * 1000) + 1;
+    if (rand === 1) {
+        const rand = Math.floor(Math.random() * 1000) + 1;
+        if (rand === 1) {
+            if (clicks > 0) {
+                if (clicks >= 10000) {
+                    clicks -= 10000;
+                    alert(`KIDNEY STONE ATTACK HAHAHA! (You lost 10000 clicks) Remaining clicks: ${clicks}`);
+                } else {
+                    alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
+                }
             }
         }
+        showScore.innerHTML = clicks;
+        showScore.innerHTML = clicks;
     }
-    showScore.innerHTML = clicks; // Update the score display
-}
 
-// Run the function every second
-setInterval(kidneyStone, 1000);
-kidneyStone();
 
-UpgradeFunction()
+    setInterval(kidneyStone, 1000);
+    kidneyStone();
+
+    UpgradeFunction()
 
 
 
-const minionSelect = document.getElementById('minion-select');
-const buyMinionButton = document.getElementById('buy-minion');
-const activeMinionsDiv = document.getElementById('active-minions');
-
-const minions = {
-    squirrel: { name: "Hyperactive Squirrel", cost: 1000, cps: 2 },
-    gymbro: { name: "Gym Bro", cost: 5000, cps: 7 },
-    gamer: { name: "Jittery Gamer", cost: 10000, cps: 20 }
-};
-
-let totalCPS = 0;
-
-function updateScore() {
-    showScore.innerHTML = `${clicks}`;  // Update the displayed score
-}
+    const minionShopButton = document.getElementById('minion-shop-button');
+    const minionDropdown = document.getElementById('minion-dropdown');
+    const minionSelect = document.getElementById('minion-select');
+    const buyMinionButton = document.getElementById('buy-minion');
+    const activeMinionsDiv = document.getElementById('active-minions');
 
 
-updateScore();
+    const minions = {
+        squirrel: { name: "Hyperactive Squirrel", cost: 1000, cps: 2 },
+        gymbro: { name: "Gym Bro", cost: 5000, cps: 7 },
+        gamer: { name: "Jittery Gamer", cost: 10000, cps: 20 }
+    };
 
-buyMinionButton.addEventListener('click', () => {
-    const selectedMinion = minionSelect.value;
+    let totalCPS = 0;
 
-    if (selectedMinion && clicks >= minions[selectedMinion].cost) {
-        clicks -= minions[selectedMinion].cost;
+
+
+    minionShopButton.addEventListener('click', () => {
+        if (minionDropdown.style.display === 'block') {
+            minionDropdown.style.display = 'none';
+        } else {
+            minionDropdown.style.display = 'block';
+        }
+    });
+
+
+
+
+    minionShopButton.addEventListener('click', () => {
+        if (minionDropdown.style.display === 'block') {
+            minionDropdown.style.display = 'none';
+        } else {
+            minionDropdown.style.display = 'block';
+        }
+    });
+
+
+    function updateScore() {
+        document.getElementById('clicks').textContent = clicks;
+        document.getElementById('clicks').textContent = clicks;
+        showScore.innerHTML = `${clicks}`;  // Update the displayed score
+    }
+
+
+    updateScore();
+
+
+    buyMinionButton.addEventListener('click', () => {
+        const selectedMinion = minionSelect.value;
+
+        if (selectedMinion && clicks >= minions[selectedMinion].cost) {
+            clicks -= minions[selectedMinion].cost;
+            totalCPS += minions[selectedMinion].cps;
+
+            updateScore();
+
+
+            const newMinion = document.createElement('p');
+            newMinion.textContent = `${minions[selectedMinion].name} (+${minions[selectedMinion].cps} CPS)`;
+            activeMinionsDiv.appendChild(newMinion);
+
+            alert(`You bought ${minions[selectedMinion].name}! CPS is now ${totalCPS}.`);
+        } else {
+            alert("Not enough clicks to buy this minion!");
+        }
+    });
+
+
+    setInterval(() => {
+        clicks += totalCPS;
         updateScore();
-
-        totalCPS += minions[selectedMinion].cps;
-
-        const newMinion = document.createElement('p');
-        newMinion.textContent = `${minions[selectedMinion].name} (+${minions[selectedMinion].cps} CPS)`;
-        activeMinionsDiv.appendChild(newMinion);
-
-        alert(`You bought ${minions[selectedMinion].name}! CPS is now ${totalCPS}.`);
-    } else {
-        alert("Not enough clicks to buy this minion!");
-    }
-});
-
-
-setInterval(() => {
-    clicks += totalCPS;
-}, 1000);
+    }, 1000);
