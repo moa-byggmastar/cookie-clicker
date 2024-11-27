@@ -38,10 +38,10 @@ function updateRebirthButton() {
 rebirthButton.addEventListener('click', () => {
     if (clicks >= rebirthReq) {
         rebirths += 1; // Increment rebirth count
-        markiplier += 1; // Permanent multiplier
+        rebirthMulti += 1; // Permanent multiplier
         clicks = 0; // Reset clicks
-        rebirthReq *= 2; // Double the rebirth requirement
-
+        rebirthReq = rebirthReq + 100000
+        markiplier++
         alert(`YOU REBIRTHED MARKIPLIER: x${rebirthMulti}, Rebirths: ${rebirths}`);
 
         showScore.innerHTML = clicks;
@@ -92,45 +92,46 @@ function updateUpgradeButton() {
         upgrade.style.color = "#FFFFFF";
     }
 }
+
 function UpgradeFunction() {
     upgrade.addEventListener('click', () => {
         if (clicks >= 50 && upgradeLevel == 1) {
-            markiplier = 4;
+            markiplier = 4 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "wmonster.png";
             Explosion();
         } else if (clicks >= 200 && upgradeLevel == 2) {
-            markiplier = 8;
+            markiplier = 8 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "badapplemonster.png";
             Explosion();
         } else if (clicks >= 500 && upgradeLevel == 3) {
-            markiplier = 12;
+            markiplier = 12 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "pipelinepunchmonster.png";
             Explosion();
         } else if (clicks >= 2000 && upgradeLevel == 4) {
-            markiplier = 20;
+            markiplier = 20 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "pacificpunchmonster.png";
             Explosion();
         } else if (clicks >= 5000 && upgradeLevel == 5) {
-            markiplier = 30;
+            markiplier = 30 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "vr46monster.png";
             Explosion();
         } else if (clicks >= 10000 && upgradeLevel == 6) {
-            markiplier = 60;
+            markiplier = 60 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "monarch.png";
             Explosion();
         } else if (clicks >= 20000 && upgradeLevel == 7) {
-            markiplier = 120;
+            markiplier = 120 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "monstermule.png";
             Explosion();
         } else if (clicks >= 50000 && upgradeLevel == 8) {
-            markiplier = 360;
+            markiplier = 360 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "mangoloco.png";
             Explosion();
@@ -149,8 +150,6 @@ function Explosion() {
 
     showScore.innerHTML = clicks;
     updateUpgradeButton();
-});
-}
 function Explosion() {
 
     const explosion = document.createElement("img");
@@ -163,13 +162,11 @@ function Explosion() {
     explosion.style.width = "500px";
     explosion.style.position = "absolute";
 
-
+    document.body.appendChild(explosion);
+  
     document.body.appendChild(explosion);
 
-
-
     document.body.appendChild(explosion);
-
 
     setTimeout(() => {
         explosion.remove();
@@ -193,13 +190,15 @@ function kidneyStone() {
         showScore.innerHTML = clicks;
         showScore.innerHTML = clicks;
     }
+    showScore.innerHTML = clicks;
+    showScore.innerHTML = clicks;
+}
 
 
     setInterval(kidneyStone, 1000);
     kidneyStone();
 
     UpgradeFunction()
-
 
 
     const minionShopButton = document.getElementById('minion-shop-button');
@@ -229,6 +228,19 @@ function kidneyStone() {
 
 
 
+const minionShopButton = document.getElementById('minion-shop-button');
+const minionDropdown = document.getElementById('minion-dropdown');
+const minionSelect = document.getElementById('minion-select');
+const buyMinionButton = document.getElementById('buy-minion');
+const activeMinionsDiv = document.getElementById('active-minions');
+
+const minions = {
+    squirrel: { name: "Hyperactive Squirrel", cost: 1000, cps: 2 },
+    gymbro: { name: "Gym Bro", cost: 5000, cps: 7 },
+    gamer: { name: "Jittery Gamer", cost: 10000, cps: 20 }
+};
+
+let totalCPS = 0;
 
     minionShopButton.addEventListener('click', () => {
         if (minionDropdown.style.display === 'block') {
@@ -252,6 +264,16 @@ function kidneyStone() {
     buyMinionButton.addEventListener('click', () => {
         const selectedMinion = minionSelect.value;
 
+function updateScore() {
+    document.getElementById('clicks').textContent = clicks;
+    document.getElementById('clicks').textContent = clicks;
+    showScore.innerHTML = `${clicks}`;  // Update the displayed score
+}
+
+updateScore();
+
+buyMinionButton.addEventListener('click', () => {
+    const selectedMinion = minionSelect.value;
 
         if (selectedMinion && clicks >= minions[selectedMinion].cost) {
             clicks -= minions[selectedMinion].cost;
@@ -282,3 +304,17 @@ function kidneyStone() {
         clicks += totalCPS;
         updateScore();
     }, 1000);
+        const newMinion = document.createElement('p');
+        newMinion.textContent = `${minions[selectedMinion].name} (+${minions[selectedMinion].cps} CPS)`;
+        activeMinionsDiv.appendChild(newMinion);
+
+        alert(`You bought ${minions[selectedMinion].name}! CPS is now ${totalCPS}.`);
+    } else {
+        alert("Not enough clicks to buy this minion!");
+    }
+});
+
+setInterval(() => {
+    clicks += totalCPS;
+    updateScore();
+}, 1000)
