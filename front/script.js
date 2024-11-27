@@ -1,9 +1,18 @@
-const cookie = document.querySelector('.cookie')
-let clicks = 0
-let markiplier = 1
-const showScore = document.getElementById('clicks')
-const upgrade = document.getElementById('upgrade')
-let upgradeLevel = 1
+const cookie = document.querySelector('.cookie');
+let clicks = 0;
+let markiplier = 1;
+const showScore = document.getElementById('clicks');
+const upgrade = document.getElementById('upgrade');
+let upgradeLevel = 1;
+
+// Rebirth Variables
+let rebirths = 0; // Track rebirth count
+let rebirthMulti =0;
+let rebirthReq = 99999; // Initial rebirth requirement
+
+// Rebirth Button
+const rebirthButton = document.getElementById('rebirth');
+rebirthButton.style.display = "none";
 
 cookie.ondragstart = () => {
     return false;
@@ -14,11 +23,34 @@ cookie.addEventListener('click', () => {
     showScore.innerHTML = clicks;
 
     updateUpgradeButton();
+    updateRebirthButton(); // Check rebirth eligibility
+});
 
+function updateRebirthButton() {
+    if (clicks >= rebirthReq) {
+        rebirthButton.style.display = "block"; // Show button if eligible
+        rebirthButton.innerHTML = `REBIRTH! (+1 Multiplier)`;
+    } else {
+        rebirthButton.style.display = "none"; // Hide button if not eligible
+    }
+}
+
+rebirthButton.addEventListener('click', () => {
+    if (clicks >= rebirthReq) {
+        rebirths += 1; // Increment rebirth count
+        markiplier += 1; // Permanent multiplier
+        clicks = 0; // Reset clicks
+        rebirthReq *= 2; // Double the rebirth requirement
+
+        alert(`YOU REBIRTHED MARKIPLIER: x${rebirthMulti}, Rebirths: ${rebirths}`);
+
+        showScore.innerHTML = clicks;
+        updateRebirthButton();
+    }
 });
 
 function updateUpgradeButton() {
-    console.log(clicks, upgradeLevel)
+    console.log(clicks, upgradeLevel);
     if (clicks >= 50000 && upgradeLevel == 8) {
         upgrade.innerHTML = "UPGRADE TO THE MANGO LOCO";
         upgrade.style.backgroundColor = "#90D5FF";
@@ -64,45 +96,44 @@ function UpgradeFunction() {
     upgrade.addEventListener('click', () => {
         if (clicks >= 50 && upgradeLevel == 1) {
             markiplier = 4;
-            upgradeLevel = upgradeLevel + 1
-            cookie.querySelector("img").src = "wmonster.png"
-            Explosion()
+            upgradeLevel = upgradeLevel + 1;
+            cookie.querySelector("img").src = "wmonster.png";
+            Explosion();
         } else if (clicks >= 200 && upgradeLevel == 2) {
             markiplier = 8;
-            upgradeLevel = upgradeLevel + 1
-            cookie.querySelector("img").src = "badapplemonster.png"
-            Explosion()
+            upgradeLevel = upgradeLevel + 1;
+            cookie.querySelector("img").src = "badapplemonster.png";
+            Explosion();
         } else if (clicks >= 500 && upgradeLevel == 3) {
             markiplier = 12;
-            upgradeLevel = upgradeLevel + 1
-            cookie.querySelector("img").src = "pipelinepunchmonster.png"
-            Explosion()
+            upgradeLevel = upgradeLevel + 1;
+            cookie.querySelector("img").src = "pipelinepunchmonster.png";
+            Explosion();
         } else if (clicks >= 2000 && upgradeLevel == 4) {
             markiplier = 20;
-            upgradeLevel = upgradeLevel + 1
-            cookie.querySelector("img").src = "pacificpunchmonster.png"
-            Explosion()
+            upgradeLevel = upgradeLevel + 1;
+            cookie.querySelector("img").src = "pacificpunchmonster.png";
+            Explosion();
         } else if (clicks >= 5000 && upgradeLevel == 5) {
             markiplier = 30;
-            upgradeLevel = upgradeLevel + 1
-            cookie.querySelector("img").src = "vr46monster.png"
-            Explosion()
+            upgradeLevel = upgradeLevel + 1;
+            cookie.querySelector("img").src = "vr46monster.png";
+            Explosion();
         } else if (clicks >= 10000 && upgradeLevel == 6) {
             markiplier = 60;
-            upgradeLevel = upgradeLevel + 1
-            cookie.querySelector("img").src = "monarch.png"
-            Explosion()
+            upgradeLevel = upgradeLevel + 1;
+            cookie.querySelector("img").src = "monarch.png";
+            Explosion();
         } else if (clicks >= 20000 && upgradeLevel == 7) {
             markiplier = 120;
-            upgradeLevel = upgradeLevel + 1
-            cookie.querySelector("img").src = "monstermule.png"
-            Explosion()
+            upgradeLevel = upgradeLevel + 1;
+            cookie.querySelector("img").src = "monstermule.png";
+            Explosion();
         } else if (clicks >= 50000 && upgradeLevel == 8) {
             markiplier = 360;
-            upgradeLevel = upgradeLevel + 1
-            cookie.querySelector("img").src = "mangoloco.png"
-            Explosion()
-
+            upgradeLevel = upgradeLevel + 1;
+            cookie.querySelector("img").src = "mangoloco.png";
+            Explosion();
         } else {
             upgrade.innerHTML = "NEXT UPGRADE LOCKED";
             upgrade.style.backgroundColor = "#3a3c3e";
@@ -171,7 +202,7 @@ const minions = {
 let totalCPS = 0;
 
 function updateScore() {
-    showScore.innerHTML = `Clicks: ${clicks}`;  // Update the displayed score
+    showScore.innerHTML = `${clicks}`;  // Update the displayed score
 }
 
 
