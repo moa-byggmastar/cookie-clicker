@@ -38,10 +38,10 @@ function updateRebirthButton() {
 rebirthButton.addEventListener('click', () => {
     if (clicks >= rebirthReq) {
         rebirths += 1; // Increment rebirth count
-        markiplier += 1; // Permanent multiplier
+        rebirthMulti += 1; // Permanent multiplier
         clicks = 0; // Reset clicks
-        rebirthReq *= 2; // Double the rebirth requirement
-
+        rebirthReq = rebirthReq + 100000
+        markiplier++
         alert(`YOU REBIRTHED MARKIPLIER: x${rebirthMulti}, Rebirths: ${rebirths}`);
 
         showScore.innerHTML = clicks;
@@ -96,42 +96,42 @@ function updateUpgradeButton() {
 function UpgradeFunction() {
     upgrade.addEventListener('click', () => {
         if (clicks >= 50 && upgradeLevel == 1) {
-            markiplier = 4;
+            markiplier = 4 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "wmonster.png";
             Explosion();
         } else if (clicks >= 200 && upgradeLevel == 2) {
-            markiplier = 8;
+            markiplier = 8 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "badapplemonster.png";
             Explosion();
         } else if (clicks >= 500 && upgradeLevel == 3) {
-            markiplier = 12;
+            markiplier = 12 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "pipelinepunchmonster.png";
             Explosion();
         } else if (clicks >= 2000 && upgradeLevel == 4) {
-            markiplier = 20;
+            markiplier = 20 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "pacificpunchmonster.png";
             Explosion();
         } else if (clicks >= 5000 && upgradeLevel == 5) {
-            markiplier = 30;
+            markiplier = 30 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "vr46monster.png";
             Explosion();
         } else if (clicks >= 10000 && upgradeLevel == 6) {
-            markiplier = 60;
+            markiplier = 60 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "monarch.png";
             Explosion();
         } else if (clicks >= 20000 && upgradeLevel == 7) {
-            markiplier = 120;
+            markiplier = 120 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "monstermule.png";
             Explosion();
         } else if (clicks >= 50000 && upgradeLevel == 8) {
-            markiplier = 360;
+            markiplier = 360 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "mangoloco.png";
             Explosion();
@@ -186,7 +186,7 @@ function kidneyStone() {
                     alert("KIDNEY STONE ATTACK HAHAHA! (But you are broke so I won't tax you)");
                 }
             }
-        }
+        }}
         showScore.innerHTML = clicks;
         showScore.innerHTML = clicks;
     }
