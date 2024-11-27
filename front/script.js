@@ -171,7 +171,7 @@ const minions = {
 let totalCPS = 0;
 
 function updateScore() {
-    showScore.innerHTML = `Clicks: ${clicks}`;  // Update the displayed score
+    showScore.innerHTML = `${clicks}`;  // Update the displayed score
 }
 
 
