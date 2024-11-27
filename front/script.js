@@ -179,7 +179,7 @@ minionShopButton.addEventListener('click', () => {
     if (minionDropdown.style.display === 'block') {
         minionDropdown.style.display = 'none';
     } else {
-        minionDropdown.style.display = 'block';
+        minionDropdown.style.display = 'block';  
     }
 });
 
