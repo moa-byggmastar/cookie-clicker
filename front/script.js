@@ -1,5 +1,5 @@
 const cookie = document.querySelector('.cookie');
-let clicks = 0;
+let clicks = 100000;
 let markiplier = 1;
 const showScore = document.getElementById('clicks');
 const upgrade = document.getElementById('upgrade');
@@ -38,7 +38,7 @@ function updateRebirthButton() {
 rebirthButton.addEventListener('click', () => {
     if (clicks >= rebirthReq) {
         rebirths += 1; // Increment rebirth count
-        markiplier += 1; // Permanent multiplier
+        rebirthMulti += 1; // Permanent multiplier
         clicks = 0; // Reset clicks
         rebirthReq *= 2; // Double the rebirth requirement
 
@@ -95,7 +95,7 @@ function updateUpgradeButton() {
 function UpgradeFunction() {
     upgrade.addEventListener('click', () => {
         if (clicks >= 50 && upgradeLevel == 1) {
-            markiplier = 4;
+            markiplier = 4 + rebirthMulti;
             upgradeLevel = upgradeLevel + 1;
             cookie.querySelector("img").src = "wmonster.png";
             Explosion();
