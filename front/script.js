@@ -27,7 +27,7 @@ function updateUpgradeButton() {
     else if (clicks >= 20000 && upgradeLevel == 7) {
         upgrade.innerHTML = "UPGRADE TO MONSTER MULE";
         upgrade.style.backgroundColor = "#3D2808";
-        upgrade.style.color = "#001000";
+        upgrade.style.color = "#FFFFFF";
     }
     else if (clicks >= 10000 && upgradeLevel == 6) {
         upgrade.innerHTML = "UPGRADE TO MONARCH";
