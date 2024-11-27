@@ -7,7 +7,7 @@ let upgradeLevel = 1;
 
 // Rebirth Variables
 let rebirths = 0; // Track rebirth count
-let rebirthMulti =0;
+let rebirthMulti = 0;
 let rebirthReq = 99999; // Initial rebirth requirement
 
 // Rebirth Button
@@ -141,6 +141,12 @@ function UpgradeFunction() {
             return;
         }
 
+        showScore.innerHTML = clicks;
+        updateUpgradeButton();
+    });
+}
+function Explosion() {
+
         showScore.innerHTML = clicks; 
         updateUpgradeButton(); 
     });
@@ -157,6 +163,10 @@ function Explosion() {
     explosion.style.width = "500px";
     explosion.style.position = "absolute";
 
+
+    document.body.appendChild(explosion);
+
+
    
     document.body.appendChild(explosion);
 
@@ -167,6 +177,8 @@ function Explosion() {
 }
 
 function kidneyStone() {
+    const rand = Math.floor(Math.random() * 1000) + 1;
+    if (rand === 1) {
     const rand = Math.floor(Math.random() * 1000) + 1; 
     if (rand === 1) { 
         if (clicks > 0) {
@@ -178,6 +190,7 @@ function kidneyStone() {
             }
         }
     }
+    showScore.innerHTML = clicks;
     showScore.innerHTML = clicks; 
 }
 
@@ -215,7 +228,19 @@ minionShopButton.addEventListener('click', () => {
 });
 
 
+
+
+minionShopButton.addEventListener('click', () => {
+    if (minionDropdown.style.display === 'block') {
+        minionDropdown.style.display = 'none';
+    } else {
+        minionDropdown.style.display = 'block';
+    }
+});
+
+
 function updateScore() {
+    document.getElementById('clicks').textContent = clicks;
     document.getElementById('clicks').textContent = clicks; 
     showScore.innerHTML = `${clicks}`;  // Update the displayed score
 }
@@ -226,6 +251,13 @@ updateScore();
 
 buyMinionButton.addEventListener('click', () => {
     const selectedMinion = minionSelect.value; 
+
+
+    if (selectedMinion && clicks >= minions[selectedMinion].cost) {
+        clicks -= minions[selectedMinion].cost;
+        totalCPS += minions[selectedMinion].cps;
+
+        updateScore();
 
    
     if (selectedMinion && clicks >= minions[selectedMinion].cost) {
@@ -239,7 +271,6 @@ buyMinionButton.addEventListener('click', () => {
         newMinion.textContent = `${minions[selectedMinion].name} (+${minions[selectedMinion].cps} CPS)`;
         activeMinionsDiv.appendChild(newMinion);
 
-        
         alert(`You bought ${minions[selectedMinion].name}! CPS is now ${totalCPS}.`);
     } else {
         alert("Not enough clicks to buy this minion!"); 
