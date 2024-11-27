@@ -25,9 +25,9 @@ function updateUpgradeButton() {
         upgrade.style.color = "#001000";
     }
     else if (clicks >= 20000 && upgradeLevel == 7) {
-         upgrade.innerHTML = "UPGRADE TO MONSTER MULE";
-         upgrade.style.backgroundColor = "#3D2808";
-         upgrade.style.color = "#001000";
+        upgrade.innerHTML = "UPGRADE TO MONSTER MULE";
+        upgrade.style.backgroundColor = "#3D2808";
+        upgrade.style.color = "#001000";
     }
     else if (clicks >= 10000 && upgradeLevel == 6) {
         upgrade.innerHTML = "UPGRADE TO MONARCH";
@@ -102,7 +102,7 @@ function UpgradeFunction() {
             upgradeLevel = upgradeLevel + 1
             cookie.querySelector("img").src = "mangoloco.png"
             Explosion()
-            
+
         } else {
             upgrade.innerHTML = "NEXT UPGRADE LOCKED";
             upgrade.style.backgroundColor = "#3a3c3e";
@@ -163,9 +163,9 @@ const buyMinionButton = document.getElementById('buy-minion');
 const activeMinionsDiv = document.getElementById('active-minions');
 
 const minions = {
-    squirrel: { name: "Hyperactive Squirrel", cost: 100, cps: 2 },
-    gymbro: { name: "Gym Bro", cost: 500, cps: 7 },
-    gamer: { name: "Jittery Gamer", cost: 1000, cps: 20 }
+    squirrel: { name: "Hyperactive Squirrel", cost: 1000, cps: 2 },
+    gymbro: { name: "Gym Bro", cost: 5000, cps: 7 },
+    gamer: { name: "Jittery Gamer", cost: 10000, cps: 20 }
 };
 
 let totalCPS = 0;
