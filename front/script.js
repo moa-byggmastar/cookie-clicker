@@ -1,5 +1,5 @@
 const cookie = document.querySelector('.cookie');
-let clicks = 0;
+let clicks = 50000;
 let markiplier = 1;
 const showScore = document.getElementById('clicks');
 const upgrade = document.getElementById('upgrade');
@@ -7,7 +7,7 @@ let upgradeLevel = 1;
 
 // Rebirth Variables
 let rebirths = 0; // Track rebirth count
-let rebirthMulti = 0;
+let rebirthMulti = 1;
 let rebirthReq = 99999; // Initial rebirth requirement
 
 // Rebirth Button
@@ -41,7 +41,9 @@ rebirthButton.addEventListener('click', () => {
         rebirthMulti += 1; // Permanent multiplier
         clicks = 0; // Reset clicks
         rebirthReq = rebirthReq + 100000
-        markiplier++
+        markiplier = rebirthMulti
+        upgradeLevel = 1
+        cookie.querySelector("img").src="orgmonster.png"
         alert(`YOU REBIRTHED MARKIPLIER: x${rebirthMulti}, Rebirths: ${rebirths}`);
 
         showScore.innerHTML = clicks;
