@@ -1,5 +1,5 @@
 const cookie = document.querySelector('.cookie');
-let clicks = 50000;
+let clicks = 0;
 let markiplier = 1;
 const showScore = document.getElementById('clicks');
 const upgrade = document.getElementById('upgrade');
