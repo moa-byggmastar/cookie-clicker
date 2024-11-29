@@ -146,7 +146,7 @@ function UpgradeFunction() {
         updateUpgradeButton();
     });
 }
-function Explosion() {
+
 
     showScore.innerHTML = clicks;
     updateUpgradeButton();
@@ -161,10 +161,6 @@ function Explosion() {
     explosion.style.zIndex = "1000";
     explosion.style.width = "500px";
     explosion.style.position = "absolute";
-
-    document.body.appendChild(explosion);
-  
-    document.body.appendChild(explosion);
 
     document.body.appendChild(explosion);
 
@@ -187,49 +183,13 @@ function kidneyStone() {
                 }
             }
         }}
-        showScore.innerHTML = clicks;
-        showScore.innerHTML = clicks;
-    }}
-        }
-        showScore.innerHTML = clicks;
-        showScore.innerHTML = clicks;
     }
-    showScore.innerHTML = clicks;
-    showScore.innerHTML = clicks;
-}
 
 
     setInterval(kidneyStone, 1000);
     kidneyStone();
 
     UpgradeFunction()
-
-
-    const minionShopButton = document.getElementById('minion-shop-button');
-    const minionDropdown = document.getElementById('minion-dropdown');
-    const minionSelect = document.getElementById('minion-select');
-    const buyMinionButton = document.getElementById('buy-minion');
-    const activeMinionsDiv = document.getElementById('active-minions');
-
-
-    const minions = {
-        squirrel: { name: "Hyperactive Squirrel", cost: 1000, cps: 2 },
-        gymbro: { name: "Gym Bro", cost: 5000, cps: 7 },
-        gamer: { name: "Jittery Gamer", cost: 10000, cps: 20 }
-    };
-
-    let totalCPS = 0;
-
-
-
-    minionShopButton.addEventListener('click', () => {
-        if (minionDropdown.style.display === 'block') {
-            minionDropdown.style.display = 'none';
-        } else {
-            minionDropdown.style.display = 'block';
-        }
-    });
-
 
 
 const minionShopButton = document.getElementById('minion-shop-button');
