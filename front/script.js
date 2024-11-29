@@ -192,7 +192,7 @@ function kidneyStone() {
         }}
         showScore.innerHTML = clicks;
         showScore.innerHTML = clicks;
-    }
+    }}
 
 
     setInterval(kidneyStone, 1000);
